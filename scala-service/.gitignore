@@ -1,0 +1,39 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Scala template
+*.class
+*.log
+
+### SBT template
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+project/metals.sbt
+project/project/
+.history
+.cache
+.lib/
+.idea/
+.vscode/
+.metals/
+
+#Mac specific
+*.DS_Store
+
+# local pipeline testing
+docker-compose.yml
+camunda-server.xml
+.bsp
+.bloop
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
