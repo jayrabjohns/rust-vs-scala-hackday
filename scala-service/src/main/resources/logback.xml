@@ -1,0 +1,13 @@
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{ISO8601} [%thread] %highlight(%-5level) %cyan(%logger{15}) - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="async_stdout" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="stdout" />
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="async_stdout" />
+    </root>
+</configuration>
