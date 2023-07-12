@@ -5,20 +5,20 @@ Work from the Flexys hackday 07/2023.
 
 The goal of this project was to demonstrate an enthusiasm for rust and to explore how to do common things microservices need to do in rust. 
 
-The main benefit of using rust to build microservices instead of scala is that operationally spekaing they're much easier to run. They startup very quickly,  have a very low CPU usage when idle, don't have the heavy memory footprint of the jvm, and most importantly they work with kubernetes' horizontal scaling out the box.
+The main benefit of using rust to build microservices instead of scala is that operationally speaking they're much easier to run. They start up very quickly,  have a very low CPU usage when idle, don't have the heavy memory footprint of the JVM, and most importantly they work with kubernetes' horizontal scaling out of the box.
 
-Rust also carries many of the benefits of scala over other general purpose languages; such as, code style influenced from functional languages, a strict compiler, an expressive type system, and it's open source.
+Rust also carries many of the benefits of scala over other general purpose languages; such as code style influenced by functional languages, a strict compiler, an expressive type system, and it's open source.
 
-It would take time to educate the team on how to effectively use rust, ofcourse like with introducing any technology to an existing stack, but I think the long term benefits far outway this cost. Flexys have observed issues with scala after using it for 7+ years, and I believe rust fixes a lot of those without compromising what made them choose scala in the first place.
+It would take time to educate the team on how to effectively use rust, of course, like introducing any technology to an existing stack, but I think the long-term benefits far outweigh this cost. Flexys have observed issues with scala after using it for 7+ years, and I believe rust fixes many of those without compromising what made them choose scala in the first place.
 
 ## An example microservice
 The service consists of a web server exposing an HTTP endpoint, which produces an event to kafka when called. The idea was to use dependencies which would be realistic if I was building this for production.
 
-Dependencies used are:
+The dependencies used are:
 - warp: HTTP server based on tokio with a functional syntax
 - serde: JSON (de/se)rialisation
 - kafka:  kafka client library 
-- tokio: asynchronouse runtime
+- tokio: asynchronous runtime
 
 The same service was also built in scala. It's not a line for line recreation, but both versions use mannerisms of their respective language. It exposes the same endpoint and publishes the same event onto the same topic on the instance of kafka.
 
@@ -55,7 +55,7 @@ rust-service-alpine                                        latest           d9ff
 ### Performance
 Using `docker stats` we're able to measure CPU and memory statistics of running docker containers.
 
-A summary of averages taken by eye of each service at idle and under load can be found below. This isn't a rigorous performance test, but rather a demonstration of the kinds of performance benefits rust can deliver.
+A summary of averages taken by eye for each service at idle and under load can be found below. This isn't a rigorous performance test, but rather a demonstration of the kinds of performance benefits rust can deliver.
 
 Load was simulated with a helper script found at `scripts/go.sh`.
 
@@ -65,7 +65,7 @@ Load was simulated with a helper script found at `scripts/go.sh`.
 | Rust  | 1MB           | 1.5MB         | 0%         | 5%         |
 
 ## Running locally
-First bring up the service dependencies with docker-compose
+First, bring up the service dependencies with docker-compose
 
 ```shell
 docker-compose up -d
